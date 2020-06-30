@@ -13,7 +13,7 @@ export class LessonService {
 
   async createLesson(createLessonInput: CreateLessonInput): Promise<Lesson> {
     const { name, startDate, endDate } = createLessonInput;
-    
+
     const lesson = this.lessonRepository.create({
       id: faker.random.uuid(),
       name,
@@ -26,5 +26,9 @@ export class LessonService {
 
   async getLesson(id): Promise<Lesson> {
     return this.lessonRepository.findOne({ id });
+  }
+
+  async getLessons(): Promise<Lesson[]> {
+    return this.lessonRepository.find();
   }
 }
