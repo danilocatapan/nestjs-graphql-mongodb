@@ -29,6 +29,8 @@
     "@types/faker": "^4.1.12",
     "@types/mongodb": "^3.5.25",
     "apollo-server-express": "^2.11.0",
+    "class-transformer": "^0.2.3",
+    "class-validator": "^0.12.2",
     "faker": "^4.1.0",
     "graphql": "^14.6.0",
     "graphql-tools": "^4.0.7",
