@@ -18,7 +18,8 @@ export class LessonService {
       id: faker.random.uuid(),
       name,
       startDate,
-      endDate
+      endDate,
+      students: []
     });
 
     return this.lessonRepository.save(lesson);
@@ -30,5 +31,11 @@ export class LessonService {
 
   async getLessons(): Promise<Lesson[]> {
     return this.lessonRepository.find();
+  }
+
+  async assignStudentsToLesson(lessonId: string, studentIds: string[]): Promise<Lesson> {
+    const lesson = await this.lessonRepository.findOne({ id: lessonId });
+    lesson.students = [...lesson.students, ...studentIds];
+    return this.lessonRepository.save(lesson);
   }
 }
